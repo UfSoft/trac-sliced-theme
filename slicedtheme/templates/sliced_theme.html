@@ -1,0 +1,81 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/" py:strip="">
+  <head py:match="head" py:attrs="select('@*')">
+    ${select('*')}
+    <meta name="Original-Author" content="http://www.spyka.net" />
+    <meta name="Author" content="Pedro Algarvio - ufs@ufsoft.org" />
+    <link type="text/css" href="${req.href.chrome('theme/sliced.css')}" rel="stylesheet"/>
+  </head>
+  <body py:match="body" py:attrs="select('@*')">
+    <div id="wrap">
+      <div id="header_bg">
+        <div id="header">
+          <div py:choose="" id="logo">
+            <a py:when="chrome.logo.src!=req.href.chrome('common/trac_banner.png')"
+               href="${chrome.logo.link}"><img
+              src="${chrome.logo.src}" alt="${chrome.logo.alt}"/></a>
+            <a py:when="chrome.logo.src==req.href.chrome('common/trac_banner.png')"
+              href="${chrome.logo.link}"><img
+              src="${req.href.chrome('theme/imgs/trac_banner.png')}"
+              alt="${chrome.logo.alt}"/></a>
+            <h1 py:otherwise=""><a href="${chrome.logo.link}">${project.name}</a></h1>
+          </div>
+        </div>
+        <!--! Search -->
+        <form id="search" class="searchform noprint" action="${href.search()}" method="get">
+          <div>
+            <input type="text" name="q" id="search-input" size="18" accesskey="f" />
+            <input type="hidden" name="wiki" value="on" />
+            <input type="hidden" name="changeset" value="on" />
+            <input type="hidden" name="ticket" value="on" />
+            <input class="button" type="submit" value="Search"/>
+          </div>
+        </form>
+        <div id="metanav" class="nav">
+          <ul py:if="chrome.nav['metanav']">
+            <li py:for="idx, item in enumerate(chrome.nav['metanav'])"
+                class="${classes(first_last(idx, chrome.nav['metanav']), selected=item.active)}">
+              ${item.label}
+            </li>
+          </ul>
+        </div>
+        <div id="mainnav" class="nav">
+          <ul py:if="chrome.nav.get('mainnav')">
+            <li py:for="idx, item in enumerate(chrome.nav.get('mainnav'))"
+                class="${classes(first_last(idx, chrome.nav['mainnav']), selected=item.active)}">
+              ${item.label}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="ctxtnav" class="nav">
+          <ul>
+            <li py:for="i, elm in enumerate(chrome.ctxtnav)"
+                class="${i == 0 and 'first ' or None}${i+1 == len(chrome.ctxtnav) and 'last' or None}">$elm</li>
+          </ul>
+        </div>
+        ${select('*')}
+      </div>
+      <div id="footer">
+        <a id="tracpowered" href="http://trac.edgewall.org/"><img
+           src="${href.chrome('theme/imgs/trac_logo_mini.png')}"
+           alt="Trac Powered"/></a>
+        <p class="left">
+          Powered by <a href="${href.about()}">Trac ${trac.version}</a><br />
+          By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        </p>
+        <p class="right">${chrome.footer}</p>
+        <!-- Do not remove the copyright bellow please -->
+        <p class="copyright">Sliced template by <a href="http://www.spyka.net"
+        >spyka webmaster</a>. Ported to <a href="http://trac.edgewall.org/"
+        >Trac</a> by <a href="https://hg.ufsoft.org/TracEnvisionTheme"
+        >Pedro Algarvio</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>

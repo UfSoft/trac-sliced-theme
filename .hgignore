@@ -1,0 +1,11 @@
+syntax:glob
+**/*.pyc
+.settings
+.hgignore
+.project
+.pydevproject
+build
+dist
+extra
+test*
+*.egg-info

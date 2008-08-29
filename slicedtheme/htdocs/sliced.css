@@ -1,0 +1,114 @@
+/* sliced - a free web template by spyka webmaster
+   http://www.spyka.net
+*/
+
+/* page */
+body {
+  background-image:url('imgs/page_background.gif');
+  background-repeat:repeat;
+  background-color:#323232;
+  margin:60px auto 10px auto;
+  font-size:1.0em;
+  font-family:"Trebuchet MS", Verdana, Arial;
+}
+
+/* links */
+:link, :link:visited { color:#B90302; text-decoration:none; }
+:link:hover { text-decoration:underline; }
+
+/* paragraphs */
+p { margin:6px 0 10px 0; }
+
+/* forms */
+form p { margin:12px 0; }
+form label {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:0.9em;
+}
+form input, textarea {
+  border:1px solid #CCCCCC;
+  padding:5px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+  background-color:#B80201;
+  color:#FFFFFF;
+  font-family:Geneva, Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  border:1px solid #CCCCCC;
+  height: 22px;
+}
+
+/* lists */
+ul { list-style:square; margin:4px 0 4px 20px; }
+ol { margin:4px 0 4px 27px; }
+
+/* code */
+code {
+  font-family:"Courier New", Courier, monospace;
+  margin:10px;
+  padding:10px;
+  border:1px solid #CCCCCC;
+  background-color:#E2E2E2;
+  display:block;
+}
+
+/* wrapper, header and nav */
+#wrap {
+  width:85%;
+  margin:0 auto;
+  border:4px solid #080808;
+  background-color:#FFFFFF;
+}
+#header_bg {
+  background-image:url('imgs/header_background.jpg');
+  background-repeat:repeat-x;
+  background-color:#F85C5D;
+}
+#header { padding: 10px 10px; }
+#search { margin-right: 5px; }
+
+.nav ul { font-size: 12px; }
+#mainnav {
+  width:100%;
+  height: 43px;
+  background-image:url('imgs/nav_background.gif');
+  background-repeat:repeat-x;
+  background-position:center bottom;
+  border: none;
+  color: #fff;
+  padding: 0 0;
+}
+#mainnav ul { float: right; }
+#mainnav :link, #mainnav :visited {
+  float:left;
+  padding:12px 10px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  border: none;
+  background: transparent;
+  padding-bottom: 15px;
+}
+#mainnav :link:hover, #mainnav :visited:hover {
+  background: transparent; border: none; background-color: #E23C3C; }
+
+#mainnav ul li.selected a, #mainnav ul li.selected a:hover {
+  background-color:transparent;
+  background-image: url('imgs/arrow_selected.gif');
+  background-repeat:no-repeat;
+  background-position:center bottom;
+}
+
+#metanav :link, #metanav :visited { color: #fff; }
+#metanav :link:hover, #metanav :visited:hover { color: #E23C3C; }
+
+/* content */
+div#content { margin:2px 6px; }
+
+/* footer */
+#footer { clear: both; padding: 10px 10px; }
+#footer p { font-size:1em; text-align:center; }
